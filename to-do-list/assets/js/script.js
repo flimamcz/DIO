@@ -1,25 +1,25 @@
 const input = document.getElementById('nameTask');
-const labelCheckBox = document.querySelector('.checkbox')
+const task = document.querySelector('.task')
 
 function handleTask(event){
     event.preventDefault(); 
+    const inputValue = input.value;
+    addTask(inputValue)
+    input.reset()
 }
 
-const addAndDelete = {
-    add(){
-        const inputValue = input.value;
-        const labelCreated = document.createElement('label')
-        labelCreated.innerText = inputValue
-        labelCheckBox.appendChild(labelCreated)
+function addTask(description){
+    const taskContainer = document.createElement('div')
+    const newTask = document.createElement('input')
+    const taskLabel = document.createElement('label')
+    const taskDescriptionNode = document.createTextNode(description)
 
-        const inputCheckBox = `<input type="checkbox">`
-        labelCheckBox.insertAdjacentHTML('afterbegin', inputCheckBox)
-        
-    },
+    newTask.setAttribute('type', 'checkbox')
+    newTask.setAttribute('name', description)
+    newTask.setAttribute('id', description)
 
-    delete(){
-
-    },
+    taskLabel.setAttribute('for', description)
+    taskLabel.appendChild(taskDescriptionNode)
 }
 
 btnAddTask.addEventListener('click', handleTask)
