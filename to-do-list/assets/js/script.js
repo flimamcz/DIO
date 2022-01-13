@@ -5,7 +5,6 @@ function handleTask(event){
     event.preventDefault(); 
     const inputValue = input.value;
     addTask(inputValue)
-    input.reset()
 }
 
 function addTask(description){
@@ -20,6 +19,26 @@ function addTask(description){
 
     taskLabel.setAttribute('for', description)
     taskLabel.appendChild(taskDescriptionNode)
+
+    taskContainer.classList.add('task-item')
+    taskContainer.appendChild(newTask)
+    taskContainer.appendChild(taskLabel)
+    task.appendChild(taskContainer)
 }
 
 btnAddTask.addEventListener('click', handleTask)
+const img = document.querySelector('img[src*="assets/img"]')
+const btn = document.querySelector('.alternateMode')
+
+function changeMode(){
+    document.body.classList.add('active')
+    img.setAttribute('src', 'assets/img/mode-light.svg')
+}
+
+function changeLight(){
+    document.body.classList.remove('active')
+    img.setAttribute('src', 'assets/img/mode-dark.svg')
+}
+
+btn.addEventListener('click', changeMode)
+btn.addEventListener('dblclick', changeLight)

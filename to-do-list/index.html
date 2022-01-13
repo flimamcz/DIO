@@ -7,14 +7,21 @@
     <title>To-do-List</title>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
+    <div class="mode">
+        <button class="alternateMode">
+            <img src="assets/img/mode-dark.svg" alt="icon mode dark">
+        </button>
+    </div>
     <div class="box">
         <h1>To-do-List</h1>
         <form id="form">
             <input type="text" placeholder="Nome da tarefa" id="nameTask" required>
-            <button id="btnAddTask" onclick="addAndDelete.add()">Adicionar Task</button>
+            <button id="btnAddTask">Adicionar Task</button>
         </form>
 
         <div class="task">
+           
         </div>
     </div>
     <script src="assets/js/script.js"></script>
